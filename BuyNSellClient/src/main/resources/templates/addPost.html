@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Add Post </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div th:replace="/header :: header"></div>
+
+<h1 style="margin-top:80px;clear:left"> Add Post </h1>
+
+<form method="post" action="/post/add" th:action="@{/post/add}" enctype="multipart/form-data">
+    <div>
+        Title : <input type="text" placeholder="Title" name="title"/>
+
+    </div>
+
+    <div>
+        Price : <input type="text" placeholder="Price" name="priceDetail.price"/>
+    </div>
+
+    <div>
+        Category : <input type="text" placeholder="Category" name="catagory.name"/>
+    </div>
+
+    <div>
+        Description : <input type="description" placeholder="Description" name="description"/>
+    </div>
+
+    <div>
+        Item Specification : <input type="text" placeholder="Item Specification" name="itemSpecification"/>
+    </div>
+
+    <!--photo upload-->
+
+    <!--<div>-->
+    <!--<label>Upload Image</label>-->
+    <!--<input type="file" name="photoURL" class="form-control btn btn-default"/>-->
+    <!--</div>-->
+
+    <!--photo upload ends here-->
+
+    <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/> -->
+    <button type="submit">Add Post</button>
+</form>
+
+</body>
+</html>

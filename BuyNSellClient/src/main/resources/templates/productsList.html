@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Post List</title>
+
+</head>
+
+<body>
+
+<h1>Post list</h1>
+
+<p>
+    <a href="addPost.html" th:href="@{/post/add}">Add post</a>
+</p>
+
+<img th:src="@{/resources/static/images/Samsung_mobile_S7.jpg}"/>
+
+<table th:border="1">
+    <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Is Negotiable?</th>
+        <th>Description</th>
+        <th>Posted On</th>
+        <th>Description</th>
+        <th>Item Specification</th>
+        <th>Number of Views</th>
+        <th>Comments</th>
+    </tr>
+
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.title}">Title</td>
+        <td th:text="${post.priceDetail.price}">Price</td>
+        <td th:text="${post.priceDetail.negotiable}">Negotiable</td>
+        <td th:text="${post.postedOn}">2017-08-13</td>
+        <td th:text="${post.description}">This is a dummy product.</td>
+        <td th:text="${post.itemSpecification}">Item Specification</td>
+        <td th:text="${post.numOfViews}">Number of Views</td>
+
+    <tr th:each="comment : ${post.listOfComments}">
+        <td th:text="${comment.content}">Comment</td>
+    </tr>
+
+    </tr>
+</table>
+
+<p>
+    <a href="index.html" th:href="@{/}">Return to home</a>
+</p>
+
+</body>
+
+</html>
